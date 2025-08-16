@@ -2,6 +2,14 @@
 import { motion } from "framer-motion";
 
 export default function SignUpPage() {
+  const fromInfo = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const eamil = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ name, eamil, password });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
       <motion.div
@@ -14,7 +22,7 @@ export default function SignUpPage() {
           Create an Account
         </h2>
 
-        <form className="space-y-5">
+        <form onSubmit={fromInfo} className="space-y-5">
           {/* Full Name */}
           <div>
             <label className="block text-sm text-gray-300 mb-1">
@@ -22,6 +30,7 @@ export default function SignUpPage() {
             </label>
             <input
               type="text"
+              name="name"
               placeholder="Enter your full name"
               className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -32,6 +41,7 @@ export default function SignUpPage() {
             <label className="block text-sm text-gray-300 mb-1">Email</label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -42,22 +52,13 @@ export default function SignUpPage() {
             <label className="block text-sm text-gray-300 mb-1">Password</label>
             <input
               type="password"
+              name="password"
               placeholder="Create a password"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3  rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           {/* Confirm Password */}
-          <div>
-            <label className="block text-sm text-gray-300 mb-1">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              placeholder="Confirm your password"
-              className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
 
           {/* Sign Up Button */}
           <button
